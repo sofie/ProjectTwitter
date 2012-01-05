@@ -9,6 +9,3 @@ var add_field = Ti.UI.createTextField({
 	borderStyle:Ti.UI.INPUT_BORDERSTYLE_ROUNDED
 });
 Ti.UI.currentWindow.add(add_field);
-
-
-Ti.API.info(Ti.Platform.osname);
