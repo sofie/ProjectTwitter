@@ -1,35 +1,24 @@
 (function() {
 	tw.ui = {};
 
-	//Window 1
+	//Window Lijst Tweets
 	tw.ui.createTwitterWindow1 = function() {
 		var win = Ti.UI.createWindow({
 			titleImage : 'img/twitters.png',
 			barImage : 'img/header-bg.png',
-			url : 'winTweets.js'
+			url : 'tweetsWindow.js'
 		});
 
 		return win;
 	};
-	//Window 2
+	//Window Add Tweet
 	tw.ui.createTwitterWindow2 = function() {
 		var win = Ti.UI.createWindow({
 			titleImage : 'img/twitters.png',
 			barImage : 'img/header-bg.png',
 			layout : 'vertical',
-			url : 'winAdd.js'
+			url : 'addWindow.js'
 		});
-		var lbl = Ti.UI.createLabel({
-			text : 'What is happening?',
-			top : 15,
-			textAlign:'center',
-			font:{fontWeight:'bold',fontSize:18},
-			height:'auto'
-		});
-		
-		win.add(lbl);
-		
-
 		return win;
 	};
 	
@@ -51,14 +40,14 @@
 		tw.tab1 = Ti.UI.createTab({
 			title : 'Lijst tweets in de buurt',
 			window : win1,
-			icon : 'img/KS_nav_ui.png'
+			icon : 'img/home.png'
 		});
 
 		//Tab tweets in detail
 		tw.tab2 = Ti.UI.createTab({
 			title : 'New tweet',
 			window : win2,
-			icon : 'img/KS_nav_views.png'
+			icon : 'img/add.png'
 		});
 		var btnTweet = tw.ui.createBtnNewTweet();
 		
