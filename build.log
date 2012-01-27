@@ -1,0 +1,167 @@
+Logfile initialized
+[INFO] logfile = /Users/sofie/Documents/Titanium Studio Workspace/Project/build.log
+[DEBUG] /Users/sofie/Library/Application Support/Titanium/mobilesdk/osx/1.8.0.1/android/builder.py simulator Project /Users/sofie/Applications/android-sdk /Users/sofie/Documents/Titanium Studio Workspace/Project com.appcelerator.project 1 HVGA 
+[INFO] Building Project for Android ... one moment
+[INFO] Titanium SDK version: 1.8.0.1 (12/22/11 13:09 fbdc96f)
+[DEBUG] Waiting for device to be ready ...
+[TRACE] adb devices returned 2 devices/emulators
+[TRACE] adb devices returned 2 devices/emulators
+[TRACE] adb devices returned 2 devices/emulators
+[TRACE] adb devices returned 2 devices/emulators
+[DEBUG] Device connected... (waited 15 seconds)
+[DEBUG] waited 15.057715 seconds on emulator to get ready
+[INFO] Waiting for the Android Emulator to become available
+[ERROR] Timed out waiting for android.process.acore
+[DEBUG] com.appcelerator.project installed? False
+[INFO] Fastdev server running, deploying in Fastdev mode
+[INFO] Copying project resources..
+[INFO] Detected tiapp.xml change (or assets deleted), forcing full re-build...
+[TRACE] COPYING CREATED FILE: /Users/sofie/Documents/Titanium Studio Workspace/Project/Resources/android/appicon.png => /Users/sofie/Documents/Titanium Studio Workspace/Project/build/android/bin/assets/Resources/appicon.png
+[TRACE] COPYING CREATED FILE: /Users/sofie/Documents/Titanium Studio Workspace/Project/Resources/android/Default.png => /Users/sofie/Documents/Titanium Studio Workspace/Project/build/android/bin/assets/Resources/Default.png
+[TRACE] COPYING CREATED FILE: /Users/sofie/Documents/Titanium Studio Workspace/Project/Resources/android/favicon.ico => /Users/sofie/Documents/Titanium Studio Workspace/Project/build/android/bin/assets/Resources/favicon.ico
+[TRACE] COPYING CREATED FILE: /Users/sofie/Documents/Titanium Studio Workspace/Project/Resources/app.js => /Users/sofie/Documents/Titanium Studio Workspace/Project/build/android/bin/assets/Resources/app.js
+[TRACE] COPYING CREATED FILE: /Users/sofie/Documents/Titanium Studio Workspace/Project/Resources/fonts/Roboto-Light.ttf => /Users/sofie/Documents/Titanium Studio Workspace/Project/build/android/bin/assets/Resources/fonts/Roboto-Light.ttf
+[TRACE] COPYING CREATED FILE: /Users/sofie/Documents/Titanium Studio Workspace/Project/Resources/fonts/Roboto-Regular.ttf => /Users/sofie/Documents/Titanium Studio Workspace/Project/build/android/bin/assets/Resources/fonts/Roboto-Regular.ttf
+[TRACE] COPYING CREATED FILE: /Users/sofie/Documents/Titanium Studio Workspace/Project/Resources/fonts/Roboto-Thin.ttf => /Users/sofie/Documents/Titanium Studio Workspace/Project/build/android/bin/assets/Resources/fonts/Roboto-Thin.ttf
+[TRACE] COPYING CREATED FILE: /Users/sofie/Documents/Titanium Studio Workspace/Project/Resources/header-bg.png => /Users/sofie/Documents/Titanium Studio Workspace/Project/build/android/bin/assets/Resources/header-bg.png
+[TRACE] COPYING CREATED FILE: /Users/sofie/Documents/Titanium Studio Workspace/Project/Resources/img/appicon.png => /Users/sofie/Documents/Titanium Studio Workspace/Project/build/android/bin/assets/Resources/img/appicon.png
+[TRACE] COPYING CREATED FILE: /Users/sofie/Documents/Titanium Studio Workspace/Project/Resources/img/header-bg.png => /Users/sofie/Documents/Titanium Studio Workspace/Project/build/android/bin/assets/Resources/img/header-bg.png
+[TRACE] COPYING CREATED FILE: /Users/sofie/Documents/Titanium Studio Workspace/Project/Resources/img/KS_nav_ui.png => /Users/sofie/Documents/Titanium Studio Workspace/Project/build/android/bin/assets/Resources/img/KS_nav_ui.png
+[TRACE] COPYING CREATED FILE: /Users/sofie/Documents/Titanium Studio Workspace/Project/Resources/img/KS_nav_views.png => /Users/sofie/Documents/Titanium Studio Workspace/Project/build/android/bin/assets/Resources/img/KS_nav_views.png
+[TRACE] COPYING CREATED FILE: /Users/sofie/Documents/Titanium Studio Workspace/Project/Resources/img/twitters.png => /Users/sofie/Documents/Titanium Studio Workspace/Project/build/android/bin/assets/Resources/img/twitters.png
+[TRACE] COPYING CREATED FILE: /Users/sofie/Documents/Titanium Studio Workspace/Project/Resources/KS_nav_ui.png => /Users/sofie/Documents/Titanium Studio Workspace/Project/build/android/bin/assets/Resources/KS_nav_ui.png
+[TRACE] COPYING CREATED FILE: /Users/sofie/Documents/Titanium Studio Workspace/Project/Resources/KS_nav_views.png => /Users/sofie/Documents/Titanium Studio Workspace/Project/build/android/bin/assets/Resources/KS_nav_views.png
+[TRACE] COPYING CREATED FILE: /Users/sofie/Documents/Titanium Studio Workspace/Project/Resources/ui.js => /Users/sofie/Documents/Titanium Studio Workspace/Project/build/android/bin/assets/Resources/ui.js
+[TRACE] COPYING CREATED FILE: /Users/sofie/Documents/Titanium Studio Workspace/Project/Resources/winAdd.js => /Users/sofie/Documents/Titanium Studio Workspace/Project/build/android/bin/assets/Resources/winAdd.js
+[TRACE] COPYING CREATED FILE: /Users/sofie/Documents/Titanium Studio Workspace/Project/Resources/winTweets.js => /Users/sofie/Documents/Titanium Studio Workspace/Project/build/android/bin/assets/Resources/winTweets.js
+[TRACE] Generating Java Classes
+[DEBUG] Processing Android resource drawables
+[TRACE] COPYING FILE: /Users/sofie/Documents/Titanium Studio Workspace/Project/Resources/android/images/res-long-land-hdpi/default.png => /Users/sofie/Documents/Titanium Studio Workspace/Project/build/android/res/drawable-long-land-hdpi/default_d44e27d97b.png
+[TRACE] COPYING FILE: /Users/sofie/Documents/Titanium Studio Workspace/Project/Resources/android/images/res-long-land-ldpi/default.png => /Users/sofie/Documents/Titanium Studio Workspace/Project/build/android/res/drawable-long-land-ldpi/default_d44e27d97b.png
+[TRACE] COPYING FILE: /Users/sofie/Documents/Titanium Studio Workspace/Project/Resources/android/images/res-long-port-hdpi/default.png => /Users/sofie/Documents/Titanium Studio Workspace/Project/build/android/res/drawable-long-port-hdpi/default_d44e27d97b.png
+[TRACE] COPYING FILE: /Users/sofie/Documents/Titanium Studio Workspace/Project/Resources/android/images/res-long-port-ldpi/default.png => /Users/sofie/Documents/Titanium Studio Workspace/Project/build/android/res/drawable-long-port-ldpi/default_d44e27d97b.png
+[TRACE] COPYING FILE: /Users/sofie/Documents/Titanium Studio Workspace/Project/Resources/android/images/res-notlong-land-hdpi/default.png => /Users/sofie/Documents/Titanium Studio Workspace/Project/build/android/res/drawable-notlong-land-hdpi/default_d44e27d97b.png
+[TRACE] COPYING FILE: /Users/sofie/Documents/Titanium Studio Workspace/Project/Resources/android/images/res-notlong-land-ldpi/default.png => /Users/sofie/Documents/Titanium Studio Workspace/Project/build/android/res/drawable-notlong-land-ldpi/default_d44e27d97b.png
+[TRACE] COPYING FILE: /Users/sofie/Documents/Titanium Studio Workspace/Project/Resources/android/images/res-notlong-land-mdpi/default.png => /Users/sofie/Documents/Titanium Studio Workspace/Project/build/android/res/drawable-notlong-land-mdpi/default_d44e27d97b.png
+[TRACE] COPYING FILE: /Users/sofie/Documents/Titanium Studio Workspace/Project/Resources/android/images/res-notlong-port-hdpi/default.png => /Users/sofie/Documents/Titanium Studio Workspace/Project/build/android/res/drawable-notlong-port-hdpi/default_d44e27d97b.png
+[TRACE] COPYING FILE: /Users/sofie/Documents/Titanium Studio Workspace/Project/Resources/android/images/res-notlong-port-ldpi/default.png => /Users/sofie/Documents/Titanium Studio Workspace/Project/build/android/res/drawable-notlong-port-ldpi/default_d44e27d97b.png
+[TRACE] COPYING FILE: /Users/sofie/Documents/Titanium Studio Workspace/Project/Resources/android/images/res-notlong-port-mdpi/default.png => /Users/sofie/Documents/Titanium Studio Workspace/Project/build/android/res/drawable-notlong-port-mdpi/default_d44e27d97b.png
+[DEBUG] app stylesheet => /Users/sofie/Documents/Titanium Studio Workspace/Project/build/android/gen/com/appcelerator/project/ApplicationStylesheet.java
+[DEBUG] copying app icon: /Users/sofie/Documents/Titanium Studio Workspace/Project/build/android/bin/assets/Resources/appicon.png
+[DEBUG] generating theme.xml
+[DEBUG] found drawable-long-land-hdpi splash screen at /Users/sofie/Documents/Titanium Studio Workspace/Project/Resources/android/images/res-long-land-hdpi/default.png
+[DEBUG] copying /Users/sofie/Documents/Titanium Studio Workspace/Project/Resources/android/images/res-long-land-hdpi/default.png splash screen to /Users/sofie/Documents/Titanium Studio Workspace/Project/build/android/res/drawable-long-land-hdpi/background.png
+[DEBUG] found drawable-long-land-ldpi splash screen at /Users/sofie/Documents/Titanium Studio Workspace/Project/Resources/android/images/res-long-land-ldpi/default.png
+[DEBUG] copying /Users/sofie/Documents/Titanium Studio Workspace/Project/Resources/android/images/res-long-land-ldpi/default.png splash screen to /Users/sofie/Documents/Titanium Studio Workspace/Project/build/android/res/drawable-long-land-ldpi/background.png
+[DEBUG] found drawable-long-port-hdpi splash screen at /Users/sofie/Documents/Titanium Studio Workspace/Project/Resources/android/images/res-long-port-hdpi/default.png
+[DEBUG] copying /Users/sofie/Documents/Titanium Studio Workspace/Project/Resources/android/images/res-long-port-hdpi/default.png splash screen to /Users/sofie/Documents/Titanium Studio Workspace/Project/build/android/res/drawable-long-port-hdpi/background.png
+[DEBUG] found drawable-long-port-ldpi splash screen at /Users/sofie/Documents/Titanium Studio Workspace/Project/Resources/android/images/res-long-port-ldpi/default.png
+[DEBUG] copying /Users/sofie/Documents/Titanium Studio Workspace/Project/Resources/android/images/res-long-port-ldpi/default.png splash screen to /Users/sofie/Documents/Titanium Studio Workspace/Project/build/android/res/drawable-long-port-ldpi/background.png
+[DEBUG] found drawable-notlong-land-hdpi splash screen at /Users/sofie/Documents/Titanium Studio Workspace/Project/Resources/android/images/res-notlong-land-hdpi/default.png
+[DEBUG] copying /Users/sofie/Documents/Titanium Studio Workspace/Project/Resources/android/images/res-notlong-land-hdpi/default.png splash screen to /Users/sofie/Documents/Titanium Studio Workspace/Project/build/android/res/drawable-notlong-land-hdpi/background.png
+[DEBUG] found drawable-notlong-land-ldpi splash screen at /Users/sofie/Documents/Titanium Studio Workspace/Project/Resources/android/images/res-notlong-land-ldpi/default.png
+[DEBUG] copying /Users/sofie/Documents/Titanium Studio Workspace/Project/Resources/android/images/res-notlong-land-ldpi/default.png splash screen to /Users/sofie/Documents/Titanium Studio Workspace/Project/build/android/res/drawable-notlong-land-ldpi/background.png
+[DEBUG] found drawable-notlong-land-mdpi splash screen at /Users/sofie/Documents/Titanium Studio Workspace/Project/Resources/android/images/res-notlong-land-mdpi/default.png
+[DEBUG] copying /Users/sofie/Documents/Titanium Studio Workspace/Project/Resources/android/images/res-notlong-land-mdpi/default.png splash screen to /Users/sofie/Documents/Titanium Studio Workspace/Project/build/android/res/drawable-notlong-land-mdpi/background.png
+[DEBUG] found drawable-notlong-port-hdpi splash screen at /Users/sofie/Documents/Titanium Studio Workspace/Project/Resources/android/images/res-notlong-port-hdpi/default.png
+[DEBUG] copying /Users/sofie/Documents/Titanium Studio Workspace/Project/Resources/android/images/res-notlong-port-hdpi/default.png splash screen to /Users/sofie/Documents/Titanium Studio Workspace/Project/build/android/res/drawable-notlong-port-hdpi/background.png
+[DEBUG] found drawable-notlong-port-ldpi splash screen at /Users/sofie/Documents/Titanium Studio Workspace/Project/Resources/android/images/res-notlong-port-ldpi/default.png
+[DEBUG] copying /Users/sofie/Documents/Titanium Studio Workspace/Project/Resources/android/images/res-notlong-port-ldpi/default.png splash screen to /Users/sofie/Documents/Titanium Studio Workspace/Project/build/android/res/drawable-notlong-port-ldpi/background.png
+[DEBUG] found drawable-notlong-port-mdpi splash screen at /Users/sofie/Documents/Titanium Studio Workspace/Project/Resources/android/images/res-notlong-port-mdpi/default.png
+[DEBUG] copying /Users/sofie/Documents/Titanium Studio Workspace/Project/Resources/android/images/res-notlong-port-mdpi/default.png splash screen to /Users/sofie/Documents/Titanium Studio Workspace/Project/build/android/res/drawable-notlong-port-mdpi/background.png
+[DEBUG] found splash screen at /Users/sofie/Documents/Titanium Studio Workspace/Project/build/android/bin/assets/Resources/default.png
+[TRACE] Writing out AndroidManifest.xml
+[DEBUG] adding /Users/sofie/Documents/Titanium Studio Workspace/Project/build/android/gen/com/appcelerator/project/ApplicationStylesheet.java to javac build list
+[DEBUG] adding /Users/sofie/Documents/Titanium Studio Workspace/Project/build/android/gen/com/appcelerator/project/ProjectActivity.java to javac build list
+[DEBUG] adding /Users/sofie/Documents/Titanium Studio Workspace/Project/build/android/gen/com/appcelerator/project/ProjectAppInfo.java to javac build list
+[DEBUG] adding /Users/sofie/Documents/Titanium Studio Workspace/Project/build/android/gen/com/appcelerator/project/ProjectApplication.java to javac build list
+[DEBUG] adding /Users/sofie/Documents/Titanium Studio Workspace/Project/build/android/gen/com/appcelerator/project/R.java to javac build list
+[DEBUG] Building Java Sources: "/Users/sofie/Documents/Titanium Studio Workspace/Project/build/android/gen/com/appcelerator/project/ApplicationStylesheet.java" "/Users/sofie/Documents/Titanium Studio Workspace/Project/build/android/gen/com/appcelerator/project/ProjectActivity.java" "/Users/sofie/Documents/Titanium Studio Workspace/Project/build/android/gen/com/appcelerator/project/ProjectAppInfo.java" "/Users/sofie/Documents/Titanium Studio Workspace/Project/build/android/gen/com/appcelerator/project/ProjectApplication.java" "/Users/sofie/Documents/Titanium Studio Workspace/Project/build/android/gen/com/appcelerator/project/R.java"
+[INFO] Waiting for SDCard to become available..
+[INFO] Compiling Android Resources... This could take some time
+[DEBUG] Android classes.dex built
+[DEBUG] creating unsigned apk: /Users/sofie/Documents/Titanium Studio Workspace/Project/build/android/bin/app-unsigned.apk
+[DEBUG] from resource zip => assets/Resources/fonts/Roboto-Light.ttf
+[DEBUG] from resource zip => assets/Resources/fonts/Roboto-Regular.ttf
+[DEBUG] from resource zip => assets/Resources/fonts/Roboto-Thin.ttf
+[DEBUG] from resource zip => assets/Resources/img/KS_nav_ui.png
+[DEBUG] from resource zip => assets/Resources/img/KS_nav_views.png
+[DEBUG] from resource zip => assets/Resources/img/appicon.png
+[DEBUG] from resource zip => assets/Resources/img/header-bg.png
+[DEBUG] from resource zip => assets/Resources/img/twitters.png
+[DEBUG] from resource zip => assets/Resources/Default.png
+[DEBUG] from resource zip => assets/Resources/KS_nav_ui.png
+[DEBUG] from resource zip => assets/Resources/KS_nav_views.png
+[DEBUG] from resource zip => assets/Resources/app.js
+[DEBUG] from resource zip => assets/Resources/appicon.png
+[DEBUG] from resource zip => assets/Resources/favicon.ico
+[DEBUG] from resource zip => assets/Resources/header-bg.png
+[DEBUG] from resource zip => assets/Resources/ui.js
+[DEBUG] from resource zip => assets/Resources/winAdd.js
+[DEBUG] from resource zip => assets/Resources/winTweets.js
+[DEBUG] from resource zip => assets/app.json
+[DEBUG] from resource zip => assets/index.json
+[DEBUG] from resource zip => assets/tiapp.xml
+[DEBUG] from resource zip => res/drawable/appicon.png
+[DEBUG] from resource zip => res/drawable/background.png
+[DEBUG] from resource zip => res/drawable/close.png
+[DEBUG] from resource zip => res/drawable/facebook_login.png
+[DEBUG] from resource zip => res/drawable/facebook_login_down.png
+[DEBUG] from resource zip => res/drawable/facebook_login_wide.png
+[DEBUG] from resource zip => res/drawable/facebook_login_wide_down.png
+[DEBUG] from resource zip => res/drawable/facebook_logout.png
+[DEBUG] from resource zip => res/drawable/facebook_logout_down.png
+[DEBUG] from resource zip => res/layout/titanium_tabgroup.xml
+[DEBUG] from resource zip => AndroidManifest.xml
+[DEBUG] from resource zip => resources.arsc
+[DEBUG] from resource zip => res/drawable-hdpi/close.png
+[DEBUG] from resource zip => res/drawable-ldpi/close.png
+[DEBUG] from resource zip => res/drawable-long-land-hdpi/background.png
+[DEBUG] from resource zip => res/drawable-long-land-hdpi/default_d44e27d97b.png
+[DEBUG] from resource zip => res/drawable-long-land-ldpi/background.png
+[DEBUG] from resource zip => res/drawable-long-land-ldpi/default_d44e27d97b.png
+[DEBUG] from resource zip => res/drawable-long-port-hdpi/background.png
+[DEBUG] from resource zip => res/drawable-long-port-hdpi/default_d44e27d97b.png
+[DEBUG] from resource zip => res/drawable-long-port-ldpi/background.png
+[DEBUG] from resource zip => res/drawable-long-port-ldpi/default_d44e27d97b.png
+[DEBUG] from resource zip => res/drawable-notlong-land-hdpi/background.png
+[DEBUG] from resource zip => res/drawable-notlong-land-hdpi/default_d44e27d97b.png
+[DEBUG] from resource zip => res/drawable-notlong-land-ldpi/background.png
+[DEBUG] from resource zip => res/drawable-notlong-land-ldpi/default_d44e27d97b.png
+[DEBUG] from resource zip => res/drawable-notlong-land-mdpi/background.png
+[DEBUG] from resource zip => res/drawable-notlong-land-mdpi/default_d44e27d97b.png
+[DEBUG] from resource zip => res/drawable-notlong-port-hdpi/background.png
+[DEBUG] from resource zip => res/drawable-notlong-port-hdpi/default_d44e27d97b.png
+[DEBUG] from resource zip => res/drawable-notlong-port-ldpi/background.png
+[DEBUG] from resource zip => res/drawable-notlong-port-ldpi/default_d44e27d97b.png
+[DEBUG] from resource zip => res/drawable-notlong-port-mdpi/background.png
+[DEBUG] from resource zip => res/drawable-notlong-port-mdpi/default_d44e27d97b.png
+[DEBUG] from JAR /Users/sofie/Library/Application Support/Titanium/mobilesdk/osx/1.8.0.1/android/modules/titanium-facebook.jar => ti/modules/titanium/facebook/LICENSE
+[DEBUG] from JAR /Users/sofie/Library/Application Support/Titanium/mobilesdk/osx/1.8.0.1/android/titanium.jar => org/appcelerator/titanium/build.properties
+[DEBUG] from JAR /Users/sofie/Library/Application Support/Titanium/mobilesdk/osx/1.8.0.1/android/titanium.jar => org/appcelerator/titanium/res/drawable/background.png
+[DEBUG] from JAR /Users/sofie/Library/Application Support/Titanium/mobilesdk/osx/1.8.0.1/android/titanium.jar => org/appcelerator/titanium/res/drawable/btn_check_buttonless_on.png
+[DEBUG] from JAR /Users/sofie/Library/Application Support/Titanium/mobilesdk/osx/1.8.0.1/android/titanium.jar => org/appcelerator/titanium/res/drawable/btn_check_buttonless_on_18.png
+[DEBUG] from JAR /Users/sofie/Library/Application Support/Titanium/mobilesdk/osx/1.8.0.1/android/titanium.jar => org/appcelerator/titanium/res/drawable/btn_check_buttonless_on_48.png
+[DEBUG] from JAR /Users/sofie/Library/Application Support/Titanium/mobilesdk/osx/1.8.0.1/android/titanium.jar => org/appcelerator/titanium/res/drawable/btn_more.png
+[DEBUG] from JAR /Users/sofie/Library/Application Support/Titanium/mobilesdk/osx/1.8.0.1/android/titanium.jar => org/appcelerator/titanium/res/drawable/btn_more_18.png
+[DEBUG] from JAR /Users/sofie/Library/Application Support/Titanium/mobilesdk/osx/1.8.0.1/android/titanium.jar => org/appcelerator/titanium/res/drawable/btn_more_48.png
+[DEBUG] from JAR /Users/sofie/Library/Application Support/Titanium/mobilesdk/osx/1.8.0.1/android/titanium.jar => org/appcelerator/titanium/res/drawable/btn_picker_normal.9.png
+[DEBUG] from JAR /Users/sofie/Library/Application Support/Titanium/mobilesdk/osx/1.8.0.1/android/titanium.jar => org/appcelerator/titanium/res/drawable/btn_picker_pressed.9.png
+[DEBUG] from JAR /Users/sofie/Library/Application Support/Titanium/mobilesdk/osx/1.8.0.1/android/titanium.jar => org/appcelerator/titanium/res/drawable/btn_picker_selected.9.png
+[DEBUG] from JAR /Users/sofie/Library/Application Support/Titanium/mobilesdk/osx/1.8.0.1/android/titanium.jar => org/appcelerator/titanium/res/drawable/default_icon.png
+[DEBUG] from JAR /Users/sofie/Library/Application Support/Titanium/mobilesdk/osx/1.8.0.1/android/titanium.jar => org/appcelerator/titanium/res/drawable/photoDefault.png
+[DEBUG] from JAR /Users/sofie/Library/Application Support/Titanium/mobilesdk/osx/1.8.0.1/android/js.jar => org/mozilla/javascript/resources/Messages.properties
+[DEBUG] from JAR /Users/sofie/Library/Application Support/Titanium/mobilesdk/osx/1.8.0.1/android/js.jar => org/mozilla/javascript/resources/Messages_fr.properties
+[DEBUG] from JAR /Users/sofie/Library/Application Support/Titanium/mobilesdk/osx/1.8.0.1/android/js.jar => org/mozilla/javascript/tools/resources/Messages.properties
+[DEBUG] from JAR /Users/sofie/Library/Application Support/Titanium/mobilesdk/osx/1.8.0.1/android/modules/titanium-ui.jar => ti/modules/titanium/ui/widget/webview/binding.js
+[DEBUG] from JAR /Users/sofie/Library/Application Support/Titanium/mobilesdk/osx/1.8.0.1/android/modules/titanium-ui.jar => ti/modules/titanium/ui/widget/webview/binding.min.js
+[DEBUG] from JAR /Users/sofie/Library/Application Support/Titanium/mobilesdk/osx/1.8.0.1/android/modules/titanium-ui.jar => ti/modules/titanium/ui/widget/webview/json2.js
+[DEBUG] Waiting for device to be ready ...
+[TRACE] adb devices returned 2 devices/emulators
+[DEBUG] Device connected... (waited 0 seconds)
+[DEBUG] waited 0.092210 seconds on emulator to get ready
+[INFO] Installing application on device
+[ERROR] Failed installing com.appcelerator.project: 	pkg: /data/local/tmp/app.apk
+Failure [INSTALL_FAILED_OLDER_SDK]
+
+[INFO] Android Emulator has exited
