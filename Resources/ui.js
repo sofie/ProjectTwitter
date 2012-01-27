@@ -32,6 +32,13 @@
 
 		return win;
 	};
+	
+	tw.ui.createBtnNewTweet = function(){
+		var btn = Ti.UI.createButton({
+			label: 'New tweet'
+		});
+		return btn;
+	};
 	//Main application tabgroup maken
 	tw.ui.createApplicationTabGroup = function() {
 		var tabGroup = Ti.UI.createTabGroup();
@@ -53,6 +60,9 @@
 			window : win2,
 			icon : 'img/KS_nav_views.png'
 		});
+		var btnTweet = tw.ui.createBtnNewTweet();
+		
+		tabGroup
 		tabGroup.addTab(tw.tab1);
 		tabGroup.addTab(tw.tab2);
 

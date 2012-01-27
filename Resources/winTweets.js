@@ -1,4 +1,4 @@
-// set up a twitter screen name.
+// Twitter screen
 var twitter_name = 'Sofietje23';
 var win = Ti.UI.currentWindow;
 win.title = '@'+twitter_name;
@@ -6,7 +6,7 @@ win.title = '@'+twitter_name;
 
 function getTweets(screen_name){
 
-	// create table view data object
+	// Table view data object
 	var data = [];
 
 	var xhr = Ti.Network.createHTTPClient();
@@ -28,22 +28,23 @@ function getTweets(screen_name){
 				var created_at = prettyDate(strtotime(tweets[c].created_at));
 				var bgcolor = (c % 2) == 0 ? '#fff' : '#eee';
 				var location = tweets[c].user.location; 
-				var location = tweets[c].user.location; 
+				var location_2 = tweets[c].user.location; 
 
-				var row = Ti.UI.createTableViewRow({hasChild:true,height:'auto',backgroundColor:bgcolor});
+				var row = Ti.UI.createTableViewRow({height:'auto',backgroundColor:bgcolor});
 
-				// Create a vertical layout view to hold all the info labels and images for each tweet
+				// Layout view met alle info per tweet
 				var post_view = Ti.UI.createView({
 					height:'auto',
 					layout:'vertical',
-					left:5,
-					top:5,
-					bottom:5,
-					right:5
+					left:7,
+					top:7,
+					bottom:7,
+					right:7
 				});
 
 				var av = Ti.UI.createImageView({
 						image:avatar,
+						borderRadius:5,
 						left:0,
 						top:0,
 						height:48,
@@ -52,33 +53,46 @@ function getTweets(screen_name){
 				// Add the avatar image to the view
 				post_view.add(av);
 
-				var screenname_label = Ti.UI.createLabel({
-					text:screen_name,
+				var name_label = Ti.UI.createLabel({
+					text:name,
 					left:54,
 					width:'auto',
 					top:-48,
 					bottom:2,
 					height:16,
 					textAlign:'left',
-					font:{fontSize:14,fontWeight:'bold'}
+					font:{fontSize:13,fontWeight:'bold'}
 				});
 				// Add the username to the view
-				post_view.add(screenname_label);
+				post_view.add(name_label);
 				
-				var screenname_width=screenname_label.width;
+				var name_width=name_label.width;
 				
-				var name_label = Ti.UI.createLabel({
-					text:name,
+				var screenname_label = Ti.UI.createLabel({
+					text:"@"+screen_name,
 					top:-18,
-					left:screenname_width + 60,
+					left:name_width + 60,
 					width:'auto',
 					textAlign:'right',
 					height:16,
 					color:'#444444',
-					font:{fontSize:12}
+					font:{fontSize:11}
 				});
 				// Add the username to the view
-				post_view.add(name_label);
+				post_view.add(screenname_label);
+				
+				var date_label = Ti.UI.createLabel({
+					text:created_at,
+					width:'auto',
+					top:-18,
+					height:16,
+					right:0,
+					textAlign:'right',
+					color:'#444444',
+					font:{fontFamily:'Trebuchet MS',fontSize:11}
+				});
+				// Add the date to the view
+				post_view.add(date_label);
 
 				var tweet_text = Ti.UI.createLabel({
 					text:tweet,
@@ -88,35 +102,19 @@ function getTweets(screen_name){
 					height:'auto',
 					width:236,
 					textAlign:'left',
-					font:{fontSize:14}
+					font:{fontSize:12}
 				});
 				// Add the tweet to the view
 				post_view.add(tweet_text);
 				
-				var date_label = Ti.UI.createLabel({
-					text:created_at,
-					left:54,
-					width:'auto',
-					top:2,
-					bottom:2,
-					height:16,
-					textAlign:'left',
-					color:'#444444',
-					font:{fontFamily:'Trebuchet MS',fontSize:12}
-				});
-				// Add the date to the view
-				post_view.add(date_label);
-				var date_width=date_label.width;
-				
 				var tweet_location = Ti.UI.createLabel({
 					text:location,
-					top:-18,
-					left:date_width+60,
+					left:54,
 					width:'auto',
 					height:16,
 					textAlign:'right',
 					color:'#444444',
-					font:{fontFamily:'Trebuchet MS',fontSize:12}
+					font:{fontFamily:'Trebuchet MS',fontSize:11}
 				});
 				// Add the location to the view
 				post_view.add(tweet_location);
@@ -128,7 +126,28 @@ function getTweets(screen_name){
 			}
 			// Create the tableView and add it to the window.
 			var tableview = Titanium.UI.createTableView({data:data,minRowHeight:58});
-			//Ti.UI.currentWindow.add(tableview);
+			tableview.addEventListener('click',function(_e){
+				var alertDialog = Titanium.UI.createAlertDialog({ 
+					title: 'Klik', 
+					message: _e, 
+					buttonNames: ['OK','No'] 
+				}); 
+				alertDialog.show();
+				/*
+				var detail_view = Ti.UI.createWindow({
+					title:'Detail',
+					layout:'vertical'
+				});
+				detail_view.open(_e.rowData);
+				*/
+				/*var alertDialog = Titanium.UI.createAlertDialog({ 
+					title: 'Hello', 
+					message: 'You got mail', 
+					buttonNames: ['OK','Doh!'] 
+				}); 
+				alertDialog.show();
+				*/
+			});
 			win.add(tableview);
 		}
 		catch(E){
@@ -324,10 +343,10 @@ function prettyDate(time){
 	}
 	return day_diff == 0 && (
 		diff < 60 && "just now" ||
-		diff < 120 && "1 minute ago" ||
-		diff < 3600 && Math.floor( diff / 60 ) + " minutes ago" ||
-		diff < 7200 && "1 hour ago" ||
-		diff < 86400 && "about " + Math.floor( diff / 3600 ) + " hours ago") ||
+		diff < 120 && "1min" ||
+		diff < 3600 && Math.floor( diff / 60 ) + "min" ||
+		diff < 7200 && "1u" ||
+		diff < 86400 && "about " + Math.floor( diff / 3600 ) + "u") ||
 	day_diff == 1 && "Yesterday" ||
 	day_diff < 7 && day_diff + " days ago" ||
 	day_diff < 31 && Math.ceil( day_diff / 7 ) + " week" + ((Math.ceil( day_diff / 7 )) == 1 ? "" : "s") + " ago";
