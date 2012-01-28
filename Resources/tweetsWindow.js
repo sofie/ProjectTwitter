@@ -1,4 +1,5 @@
 // Twitter screen
+
 var twitter_name = 'Sofietje23';
 var win = Ti.UI.currentWindow;
 win.title = '@' + twitter_name;
@@ -29,7 +30,8 @@ function getTweets(screen_name) {
 
 				var row = Ti.UI.createTableViewRow({
 					height : 'auto',
-					backgroundColor : bgcolor
+					backgroundColor : bgcolor,
+					hasDetail : 'true'
 				});
 
 				// Layout view met alle info per tweet
@@ -142,21 +144,30 @@ function getTweets(screen_name) {
 				data : data,
 				minRowHeight : 58
 			});
+
 			tableview.addEventListener('click', function(_e) {
+
 				// Open detail window
 				var win = Ti.UI.createWindow({
 					title : _e.rowData,
 					layout : 'vertical',
-					url : 'detailWindow.js',
+					//url : 'detailWindow.js',
 					barImage : 'img/header-bg.png',
 				});
-
+				var lbl = Ti.UI.createLabel({
+					text :tweets[_e.index].text ,
+					top : 15,
+					textAlign : 'left',
+					font : {
+						fontSize : 12
+					},
+					height : 'auto'
+				});
+				win.add(lbl);
+				
 				// Geef toegang tot row data
-				win.rowData = _e.rowData;
-				Ti.API.info(_e.rowData);
-				Ti.API.info(_e.row);
-				Ti.API.info(_e);
-				Ti.API.info("------------------");
+				win.rowData = tweets[_e.index].rowData;
+				Ti.API.info(tweets[_e.index].text);
 
 				Ti.UI.currentTab.open(win);
 
@@ -170,6 +181,9 @@ function getTweets(screen_name) {
 	// Get the data
 	xhr.send();
 }
+
+// Get the tweets for 'twitter_name'
+getTweets(twitter_name);
 
 function strtotime(str, now) {
 	// Emlulates the PHP strtotime function in JavaScript
@@ -352,6 +366,3 @@ function prettyDate(time) {
 	}
 	return day_diff == 0 && (diff < 60 && "just now" || diff < 120 && "1min" || diff < 3600 && Math.floor(diff / 60) + "min" || diff < 7200 && "1u" || diff < 86400 && "about " + Math.floor(diff / 3600) + "u") || day_diff == 1 && "Yesterday" || day_diff < 7 && day_diff + " days ago" || day_diff < 31 && Math.ceil(day_diff / 7) + " week" + ((Math.ceil(day_diff / 7)) == 1 ? "" : "s") + " ago";
 }
-
-// Get the tweets for 'twitter_name'
-getTweets(twitter_name);

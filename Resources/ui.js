@@ -1,18 +1,18 @@
 (function() {
 	tw.ui = {};
-
+	//tw.name = "";
+	
 	//Window Lijst Tweets
-	tw.ui.createTwitterWindow1 = function() {
+	tw.ui.createTwitterWindowTweets = function() {
 		var win = Ti.UI.createWindow({
 			titleImage : 'img/twitters.png',
 			barImage : 'img/header-bg.png',
 			url : 'tweetsWindow.js'
 		});
-
 		return win;
 	};
 	//Window Add Tweet
-	tw.ui.createTwitterWindow2 = function() {
+	tw.ui.createTwitterWindowAdd = function() {
 		var win = Ti.UI.createWindow({
 			titleImage : 'img/twitters.png',
 			barImage : 'img/header-bg.png',
@@ -22,50 +22,30 @@
 		return win;
 	};
 	
-	//Login
-	tw.ui.createTwitterWindow3 = function() {
-		var win = Ti.UI.createWindow({
-			titleImage : 'img/twitters.png',
-			barImage : 'img/header-bg.png',
-			layout : 'vertical',
-			url : 'login.js'
-		});
-
-		return win; 
-	};
-
 	//Main application tabgroup maken
 	tw.ui.createApplicationTabGroup = function() {
 		var tabGroup = Ti.UI.createTabGroup();
 
 		//Windows aanmaken
-		var win1 = tw.ui.createTwitterWindow1();
-		var win2 = tw.ui.createTwitterWindow2();
-		var win3 = tw.ui.createTwitterWindow3();
-
+		var winTweets = tw.ui.createTwitterWindowTweets();
+		var winAdd = tw.ui.createTwitterWindowAdd();
+		
 		//Tab lijst met tweets
-		tw.tab1 = Ti.UI.createTab({
+		tw.tabTweets = Ti.UI.createTab({
 			title : 'Lijst tweets in de buurt',
-			window : win1,
+			window : winTweets,
 			icon : 'img/home.png'
 		});
 
-		//Tab tweets in detail
-		tw.tab2 = Ti.UI.createTab({
+		//Tab add tweet
+		tw.tabAdd = Ti.UI.createTab({
 			title : 'New tweet',
-			window : win2,
+			window : winAdd,
 			icon : 'img/add.png'
 		});
-		
-		tw.tab3 = Ti.UI.createTab({
-			title : 'Login',
-			window : win3,
-			icon : 'img/add.png'
-		});
-		
-		tabGroup.addTab(tw.tab1);
-		tabGroup.addTab(tw.tab2);
-		tabGroup.addTab(tw.tab3);
+
+		tabGroup.addTab(tw.tabTweets);
+		tabGroup.addTab(tw.tabAdd);
 
 		return tabGroup;
 	};
