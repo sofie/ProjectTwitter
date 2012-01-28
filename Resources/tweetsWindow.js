@@ -1,9 +1,24 @@
 // Twitter screen
+var usr = require('user');
+Ti.API.info("TweetWindow getName: "+usr.getName());
+usr.setName('Sofietje23');
+Ti.API.info(usr.userName);
 
-var twitter_name = 'Sofietje23';
+var twitter_name = usr.getName();
 var win = Ti.UI.currentWindow;
 win.title = '@' + twitter_name;
 
+
+var button = Ti.UI.createButton({
+	systemButton : Ti.UI.iPhone.SystemButton.REFRESH
+});
+button.addEventListener('click', function(e) {
+	getTweets(twitter_name);
+});
+Ti.UI.currentWindow.rightNavButton = button;
+
+// Get the tweets for 'twitter_name'
+getTweets(twitter_name);
 function getTweets(screen_name) {
 
 	// Table view data object
@@ -31,7 +46,7 @@ function getTweets(screen_name) {
 				var row = Ti.UI.createTableViewRow({
 					height : 'auto',
 					backgroundColor : bgcolor,
-					hasDetail : 'true'
+					rightImage : 'img/arrow.png'
 				});
 
 				// Layout view met alle info per tweet
@@ -149,22 +164,98 @@ function getTweets(screen_name) {
 
 				// Open detail window
 				var win = Ti.UI.createWindow({
-					title : _e.rowData,
 					layout : 'vertical',
-					//url : 'detailWindow.js',
-					barImage : 'img/header-bg.png',
+					barImage : 'img/header-bg.png'
 				});
-				var lbl = Ti.UI.createLabel({
-					text :tweets[_e.index].text ,
-					top : 15,
+				var imgview = Ti.UI.createImageView({
+					image : tweets[_e.index].user.profile_image_url_https,
+					borderRadius : 5,
+					left : 20,
+					top : 20,
+					height : 48,
+					width : 48
+				});
+				win.add(imgview);
+
+				var lblName = Ti.UI.createLabel({
+					text : tweets[_e.index].user.name,
+					top : -45,
+					left : 75,
 					textAlign : 'left',
+					font : {
+						fontSize : 14
+					},
+					height : 'auto'
+				});
+				win.add(lblName);
+
+				var lblNameAt = Ti.UI.createLabel({
+					text : '@' + tweets[_e.index].user.screen_name,
+					top : 0,
+					left : 75,
+					textAlign : 'left',
+					color : '#909090',
 					font : {
 						fontSize : 12
 					},
 					height : 'auto'
 				});
-				win.add(lbl);
-				
+				win.add(lblNameAt);
+
+				var lblNumTweets = Ti.UI.createLabel({
+					text : tweets[_e.index].user.statuses_count,
+					top : -35,
+					textAlign : 'right',
+					right : 20,
+					font : {
+						fontSize : 14
+					},
+					height : 'auto'
+				});
+				win.add(lblNumTweets);
+
+				var lblTweets = Ti.UI.createLabel({
+					text : 'TWEETS',
+					top : 0,
+					textAlign : 'right',
+					right : 20,
+					color : '#909090',
+					font : {
+						fontSize : 11
+					},
+					height : 'auto'
+				});
+				win.add(lblTweets);
+
+				var tweetLink = tweets[_e.index].text.replace(/((ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?)/gi, '<a href="$1">$1</a>');
+				Ti.API.info(tweetLink);
+				var lblText = Ti.UI.createLabel({
+					text : tweetLink,
+					top : 30,
+					left : 20,
+					right : 15,
+					textAlign : 'left',
+					font : {
+						fontSize : 16
+					},
+					height : 'auto'
+				});
+				win.add(lblText);
+
+				var lblDate = Ti.UI.createLabel({
+					text : prettyDate(strtotime(tweets[_e.index].created_at)),
+					top : 10,
+					left : 20,
+					right : 15,
+					textAlign : 'left',
+					color : '#909090',
+					font : {
+						fontSize : 12
+					},
+					height : 'auto'
+				});
+				win.add(lblDate);
+
 				// Geef toegang tot row data
 				win.rowData = tweets[_e.index].rowData;
 				Ti.API.info(tweets[_e.index].text);
@@ -182,8 +273,7 @@ function getTweets(screen_name) {
 	xhr.send();
 }
 
-// Get the tweets for 'twitter_name'
-getTweets(twitter_name);
+
 
 function strtotime(str, now) {
 	// Emlulates the PHP strtotime function in JavaScript

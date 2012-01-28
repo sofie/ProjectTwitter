@@ -1,10 +1,9 @@
-function User() {
-	var name = "";
+var _userName = 'xxx';
 
-	getName = function() {
-		return name;
-	}
-	setName = function(aName) {
-		name = aName;
-	}
+exports.getName = function() {
+	return _userName;
 }
+exports.setName = function(aName) {
+	_userName = aName;
+}
+exports.userName = _userName;

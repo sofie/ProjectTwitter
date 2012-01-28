@@ -1,3 +1,4 @@
+Ti.include('oauth_adapter.js');
 var lbl = Ti.UI.createLabel({
 	text : 'What is happening?',
 	top : 15,
@@ -10,10 +11,9 @@ var lbl = Ti.UI.createLabel({
 });
 Ti.UI.currentWindow.add(lbl);
 
-
-if (Ti.Platform.osname=='iphone'){
+if(Ti.Platform.osname == 'iphone') {
 	var scherm_breedte = Ti.UI.currentWindow.width - 30;
-}else{
+} else {
 	var scherm_breedte = 300;
 }
 
@@ -31,8 +31,8 @@ var add_area = Titanium.UI.createTextArea({
 });
 
 add_area.addEventListener('change', function(e) {
-	var length_area=140-add_area.value.length;
-	num_lbl.text=length_area;
+	var length_area = 140 - add_area.value.length;
+	num_lbl.text = length_area;
 });
 Ti.UI.currentWindow.add(add_area);
 
@@ -57,11 +57,16 @@ var tweet_btn = Ti.UI.createButton({
 	right : 15
 });
 tweet_btn.addEventListener('click', function(e) {
-	/*var alert_msg= Ti.UI.createAlertDialog({
-		title:'Geklikt',
-		buttonNames:'Ok'
-	});
-	alert_msg.show();*/
 	Ti.API.info("Er is geklikt");
+	
+	var url = "http://api.twitter.com/1/statuses/update.json";
+	var xhr = Titanium.Network.createHTTPClient();
+	xhr.onload = function() {
+		Ti.API.info("Er is gerespond");
+	};
+	xhr.open("POST", url);
+	xhr.send({
+		status : 'My awesome tweet!'
+	});
 });
 Ti.UI.currentWindow.add(tweet_btn);
