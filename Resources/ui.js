@@ -31,7 +31,7 @@
 			url : 'login.js'
 		});
 
-		return win;
+		return win; 
 	};
 
 	//Main application tabgroup maken
