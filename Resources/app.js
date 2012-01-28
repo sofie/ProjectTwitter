@@ -1,17 +1,15 @@
-global = this;
-
 Titanium.UI.setBackgroundColor('#ffffff');
 var tw = {};
-var name = "";
 require('ui');
+var tabCount = 0;
 
-//tw.ui.createTwitterWindowLogin = function() {
 var win = Ti.UI.createWindow({
 	titleImage : 'img/twitters.png',
 	barImage : 'img/header-bg.png',
 	layout : 'vertical',
 	modal : 'true'
 });
+
 var username = Titanium.UI.createTextField({
 	color : '#336699',
 	top : 10,
@@ -37,16 +35,31 @@ var loginBtn = Titanium.UI.createButton({
 		fontSize : 14
 	}
 });
+var tabs;
 loginBtn.addEventListener('click', function(e) {
-	var usr=require('user');
-	usr.setName(username.value); 
-	name=username.value;
-	Ti.API.info('App.js: '+usr.getName());
-	win.close();
-	
-	var tabs = tw.ui.createApplicationTabGroup();
-	tabs.open();
+	if(username.value != "") {
+		win.close();
+		if(tabCount > 0) {
+			tabs.close();
+		} else {
+			tabCount++;
+		}
+		tabs = tw.ui.createApplicationTabGroup(username.value);
+		tabs.open();
+	} else {
+		var alertBox = Ti.UI.createAlertDialog({
+			message : 'Gelieve username in te vullen',
+			title : 'Twitter',
+			buttonNames : ['Ok']
+		});
+		alertBox.show();
+	}
 });
+
 win.add(loginBtn);
-//return win;
+
+Titanium.App.addEventListener('app:btnclicked', function(e) {
+	win.open();
+	username.value = "";
+});
 win.open();

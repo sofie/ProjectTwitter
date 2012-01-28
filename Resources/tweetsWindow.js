@@ -1,21 +1,46 @@
 // Twitter screen
-var usr = require('user');
-Ti.API.info("TweetWindow getName: "+usr.getName());
-usr.setName('Sofietje23');
-Ti.API.info(usr.userName);
 
-var twitter_name = usr.getName();
 var win = Ti.UI.currentWindow;
+var twitter_name = win.myValue;
 win.title = '@' + twitter_name;
 
+if(Titanium.Platform.osname != 'iphone') {
+	Ti.UI.currentWindow.activity.onCreateOptionsMenu = function(e) {
+		var menuitem = e.menu.add({
+			title : 'Refresh Tweets'
+		});
+		menuitem.addEventListener('click', function(e) {
+			getTweets(twitter_name);
+		});
+	};
+} else {
+	var button = Ti.UI.createButton({
+		systemButton : Ti.UI.iPhone.SystemButton.REFRESH
+	});
+	
+	
+	button.addEventListener('click', function(e) {
+		var actInd = Ti.UI.createActivityIndicator({
+			bottom : 10,
+			height : 50,
+			width : 10,
+			style : Titanium.UI.iPhone.ActivityIndicatorStyle.PLAIN
+		})
+		actInd.font = {
+			fontFamily : 'Helvetica Neue',
+			fontSize : 15,
+			fontWeight : 'bold'
+		};
+		actInd.color = 'black';
+		actInd.message = 'Loading...';
+		actInd.width = 210;
 
-var button = Ti.UI.createButton({
-	systemButton : Ti.UI.iPhone.SystemButton.REFRESH
-});
-button.addEventListener('click', function(e) {
-	getTweets(twitter_name);
-});
-Ti.UI.currentWindow.rightNavButton = button;
+		actInd.show();
+		getTweets(twitter_name);
+	});
+	
+	Ti.UI.currentWindow.rightNavButton = button;
+}
 
 // Get the tweets for 'twitter_name'
 getTweets(twitter_name);
@@ -27,6 +52,8 @@ function getTweets(screen_name) {
 	var xhr = Ti.Network.createHTTPClient();
 	xhr.timeout = 1000000;
 	xhr.open("GET", "http://api.twitter.com/1/statuses/user_timeline.json?screen_name=" + screen_name);
+	//xhr.open("GET", "https://api.twitter.com/1/geo/similar_places.json?long="+-122+"&lat="+37+"&strict=false&name="+ Twitter+HQ);
+					//http://api.twitter.com/1/geo/search.json
 
 	xhr.onload = function() {
 		try {
@@ -41,7 +68,7 @@ function getTweets(screen_name) {
 				var created_at = prettyDate(strtotime(tweets[c].created_at));
 				var bgcolor = (c % 2) == 0 ? '#fff' : '#eee';
 				var location = tweets[c].user.location;
-				var location_2 = tweets[c].user.location;
+				//var location_2 = tweets[c].user.location;
 
 				var row = Ti.UI.createTableViewRow({
 					height : 'auto',
@@ -226,8 +253,10 @@ function getTweets(screen_name) {
 					height : 'auto'
 				});
 				win.add(lblTweets);
-
-				var tweetLink = tweets[_e.index].text.replace(/((ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?)/gi, '<a href="$1">$1</a>');
+				
+				
+				var tweetLink = tweets[_e.index].text.replace(/((ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?)/gi, 'Link: $1');
+				
 				Ti.API.info(tweetLink);
 				var lblText = Ti.UI.createLabel({
 					text : tweetLink,
@@ -241,7 +270,7 @@ function getTweets(screen_name) {
 					height : 'auto'
 				});
 				win.add(lblText);
-
+				
 				var lblDate = Ti.UI.createLabel({
 					text : prettyDate(strtotime(tweets[_e.index].created_at)),
 					top : 10,
@@ -258,7 +287,6 @@ function getTweets(screen_name) {
 
 				// Geef toegang tot row data
 				win.rowData = tweets[_e.index].rowData;
-				Ti.API.info(tweets[_e.index].text);
 
 				Ti.UI.currentTab.open(win);
 
@@ -272,8 +300,6 @@ function getTweets(screen_name) {
 	// Get the data
 	xhr.send();
 }
-
-
 
 function strtotime(str, now) {
 	// Emlulates the PHP strtotime function in JavaScript
