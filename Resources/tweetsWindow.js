@@ -150,14 +150,14 @@ function getTweets(screen_name) {
 					url : 'detailWindow.js',
 					barImage : 'img/header-bg.png',
 				});
-				
+
 				// Geef toegang tot row data
 				win.rowData = _e.rowData;
 				Ti.API.info(_e.rowData);
 				Ti.API.info(_e.row);
 				Ti.API.info(_e);
 				Ti.API.info("------------------");
-				
+
 				Ti.UI.currentTab.open(win);
 
 			});

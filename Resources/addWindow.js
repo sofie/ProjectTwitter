@@ -57,10 +57,11 @@ var tweet_btn = Ti.UI.createButton({
 	right : 15
 });
 tweet_btn.addEventListener('click', function(e) {
-	var alert_msg= Ti.UI.createAlertDialog({
+	/*var alert_msg= Ti.UI.createAlertDialog({
 		title:'Geklikt',
 		buttonNames:'Ok'
 	});
-	alert_msg.show();
+	alert_msg.show();*/
+	Ti.API.info("Er is geklikt");
 });
 Ti.UI.currentWindow.add(tweet_btn);
