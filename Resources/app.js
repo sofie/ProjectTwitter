@@ -11,10 +11,10 @@ var win = Ti.UI.createWindow({
 });
 
 var username = Titanium.UI.createTextField({
-	color : '#336699',
-	top : 10,
-	left : 10,
-	width : 300,
+	color : '#888',
+	top : 20,
+	left : 20,
+	right:20,
 	height : 40,
 	hintText : 'Username',
 	keyboardType : Titanium.UI.KEYBOARD_DEFAULT,
@@ -23,12 +23,27 @@ var username = Titanium.UI.createTextField({
 });
 win.add(username);
 
+var lbl = Titanium.UI.createLabel({
+	text:'Gebruik @username',
+	left:17,
+	height:'auto',
+	width:'auto',
+	top:10,
+	color:'#909090',
+	font:{
+		fontSize:12
+	}
+});
+win.add(lbl);
+
 var loginBtn = Titanium.UI.createButton({
 	title : 'Login',
-	top : 30,
+	top : -15,
 	width : 90,
-	height : 35,
+	height : 30,
+	right : 20,
 	borderRadius : 1,
+	color : '#a7a7a7',
 	font : {
 		fontFamily : 'Arial',
 		fontWeight : 'bold',

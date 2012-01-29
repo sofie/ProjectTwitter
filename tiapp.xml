@@ -12,10 +12,10 @@
     <id>com.appcelerator.project</id>
     <name>Project</name>
     <version>1.0</version>
-    <publisher>sofie</publisher>
+    <publisher>Sofie</publisher>
     <url>http://appcelerator.com</url>
-    <description>not specified</description>
-    <copyright>2011 by sofie</copyright>
+    <description>Project Ontwikkeling voor Mobiele Platformen</description>
+    <copyright>2011 by Sofie and Lieselot</copyright>
     <icon>appicon.png</icon>
     <persistent-wifi>false</persistent-wifi>
     <prerendered-icon>false</prerendered-icon>

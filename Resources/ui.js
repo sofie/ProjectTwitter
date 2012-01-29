@@ -31,6 +31,15 @@
 			layout : 'vertical',
 			url : 'addWindow.js'
 		});
+		var b = Titanium.UI.createButton({
+			title : 'Logout',
+			style : Titanium.UI.iPhone.SystemButtonStyle.PLAIN
+		});
+		b.addEventListener('click', function() {
+			Ti.App.fireEvent('app:btnclicked', {action:'Logout klik'});
+		});
+		win.setLeftNavButton(b);
+
 
 		return win;
 	};

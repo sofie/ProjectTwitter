@@ -17,8 +17,7 @@ if(Titanium.Platform.osname != 'iphone') {
 	var button = Ti.UI.createButton({
 		systemButton : Ti.UI.iPhone.SystemButton.REFRESH
 	});
-	
-	
+
 	button.addEventListener('click', function(e) {
 		var actInd = Ti.UI.createActivityIndicator({
 			bottom : 10,
@@ -38,7 +37,7 @@ if(Titanium.Platform.osname != 'iphone') {
 		actInd.show();
 		getTweets(twitter_name);
 	});
-	
+
 	Ti.UI.currentWindow.rightNavButton = button;
 }
 
@@ -53,7 +52,7 @@ function getTweets(screen_name) {
 	xhr.timeout = 1000000;
 	xhr.open("GET", "http://api.twitter.com/1/statuses/user_timeline.json?screen_name=" + screen_name);
 	//xhr.open("GET", "https://api.twitter.com/1/geo/similar_places.json?long="+-122+"&lat="+37+"&strict=false&name="+ Twitter+HQ);
-					//http://api.twitter.com/1/geo/search.json
+	//http://api.twitter.com/1/geo/search.json
 
 	xhr.onload = function() {
 		try {
@@ -253,24 +252,47 @@ function getTweets(screen_name) {
 					height : 'auto'
 				});
 				win.add(lblTweets);
-				
-				
-				var tweetLink = tweets[_e.index].text.replace(/((ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?)/gi, 'Link: $1');
-				
-				Ti.API.info(tweetLink);
-				var lblText = Ti.UI.createLabel({
-					text : tweetLink,
-					top : 30,
-					left : 20,
-					right : 15,
-					textAlign : 'left',
-					font : {
-						fontSize : 16
-					},
-					height : 'auto'
+
+				var TwitterParser = function(text) {
+					var html = text;
+					var urlRegex = /((ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?)/gi;
+
+					this.linkifyURLs = function() {
+						html = html.replace(urlRegex, '<a href="$1">$1</a>');
+					};
+
+					this.getHTML = function() {
+						return html;
+					};
+				};
+				var tweet = "Hallo http://yfrog.com/oex5mwej";
+				// parse the tweet and set it as the HTML for the web view
+				var parser = new TwitterParser(tweet);
+				parser.linkifyURLs();
+
+				var web = Ti.UI.createWebView({
+					html : parser.getHTML()
 				});
-				win.add(lblText);
+			
+				win.add(web);
+
+				//window.open();
 				
+				 var tweetLink = tweets[_e.index].text.replace(/((ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?)/gi, 'Link: $1');
+				 //Ti.API.info(tweetLink);
+				 var lblText = Ti.UI.createLabel({
+				 text : tweetLink,
+				 top : 30,
+				 left : 20,
+				 right : 15,
+				 textAlign : 'left',
+				 font : {
+				 fontSize : 16
+				 },
+				 height : 'auto'
+				 });
+				 win.add(lblText);
+				 
 				var lblDate = Ti.UI.createLabel({
 					text : prettyDate(strtotime(tweets[_e.index].created_at)),
 					top : 10,

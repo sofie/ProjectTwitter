@@ -1,8 +1,8 @@
-Ti.include('oauth_adapter.js');
 var lbl = Ti.UI.createLabel({
 	text : 'What is happening?',
+	left : 15,
 	top : 15,
-	textAlign : 'center',
+	textAlign : 'left',
 	font : {
 		fontWeight : 'bold',
 		fontSize : 18
@@ -26,8 +26,8 @@ var add_area = Titanium.UI.createTextArea({
 	keyboardType : Titanium.UI.KEYBOARD_DEFAULT,
 	returnKeyType : Titanium.UI.RETURNKEY_DONE,
 	borderWidth : 1,
-	borderColor : '#8fb4c7',
-	borderRadius : 5
+	borderColor : '#a7a7a7',
+	borderRadius : 10
 });
 
 add_area.addEventListener('change', function(e) {
@@ -37,12 +37,12 @@ add_area.addEventListener('change', function(e) {
 Ti.UI.currentWindow.add(add_area);
 
 var num_lbl = Ti.UI.createLabel({
-	top : 10,
-	right : 85,
+	top : 12,
+	right : 115,
 	width : 'auto',
 	height : 'auto',
 	text : '140',
-	color : '#909090',
+	color : '#a7a7a7',
 	font : {
 		fontSize : '12'
 	}
@@ -51,22 +51,30 @@ Ti.UI.currentWindow.add(num_lbl);
 
 var tweet_btn = Ti.UI.createButton({
 	title : 'Tweet',
-	height : 20,
-	width : 60,
-	top : -22,
-	right : 15
+	height : 30,
+	width : 90,
+	top : -20,
+	right : 15,
+	borderRadius : 1,
+	color : '#a7a7a7',
+	font : {
+		fontFamily : 'Arial',
+		fontWeight : 'bold',
+		fontSize : 14
+	}
 });
+
 tweet_btn.addEventListener('click', function(e) {
-	Ti.API.info("Er is geklikt");
-	
+	Ti.API.info("Er is geklikt: "+add_area.value);
+
 	var url = "http://api.twitter.com/1/statuses/update.json";
 	var xhr = Titanium.Network.createHTTPClient();
 	xhr.onload = function() {
-		Ti.API.info("Er is gerespond");
+		//Ti.API.info("Er is gerespond");
 	};
 	xhr.open("POST", url);
 	xhr.send({
-		status : 'My awesome tweet!'
+		status : add_area.value
 	});
 });
 Ti.UI.currentWindow.add(tweet_btn);
