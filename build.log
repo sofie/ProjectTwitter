@@ -5,14 +5,38 @@ Logfile initialized
 [DEBUG] Waiting for device to be ready ...
 [TRACE] adb devices returned 1 devices/emulators
 [DEBUG] Device connected... (waited 0 seconds)
-[DEBUG] waited 0.014398 seconds on emulator to get ready
+[DEBUG] waited 3.187175 seconds on emulator to get ready
+[INFO] Waiting for the Android Emulator to become available
 [DEBUG] com.appcelerator.project installed? False
 [INFO] Copying project resources..
-[TRACE] COPYING MODIFIED FILE: /Users/sofie/Documents/Titanium Studio Workspace/Project/Resources/addWindow.js => /Users/sofie/Documents/Titanium Studio Workspace/Project/build/android/bin/assets/Resources/addWindow.js
-[TRACE] COPYING MODIFIED FILE: /Users/sofie/Documents/Titanium Studio Workspace/Project/Resources/tweetsWindow.js => /Users/sofie/Documents/Titanium Studio Workspace/Project/build/android/bin/assets/Resources/tweetsWindow.js
+[INFO] Detected tiapp.xml change (or assets deleted), forcing full re-build...
+[TRACE] COPYING CREATED FILE: /Users/sofie/Documents/Titanium Studio Workspace/Project/Resources/addWindow.js => /Users/sofie/Documents/Titanium Studio Workspace/Project/build/android/bin/assets/Resources/addWindow.js
+[TRACE] COPYING CREATED FILE: /Users/sofie/Documents/Titanium Studio Workspace/Project/Resources/android/appicon.png => /Users/sofie/Documents/Titanium Studio Workspace/Project/build/android/bin/assets/Resources/appicon.png
+[TRACE] COPYING CREATED FILE: /Users/sofie/Documents/Titanium Studio Workspace/Project/Resources/android/default.png => /Users/sofie/Documents/Titanium Studio Workspace/Project/build/android/bin/assets/Resources/default.png
+[TRACE] COPYING CREATED FILE: /Users/sofie/Documents/Titanium Studio Workspace/Project/Resources/android/favicon.ico => /Users/sofie/Documents/Titanium Studio Workspace/Project/build/android/bin/assets/Resources/favicon.ico
+[TRACE] COPYING CREATED FILE: /Users/sofie/Documents/Titanium Studio Workspace/Project/Resources/app.js => /Users/sofie/Documents/Titanium Studio Workspace/Project/build/android/bin/assets/Resources/app.js
+[TRACE] COPYING CREATED FILE: /Users/sofie/Documents/Titanium Studio Workspace/Project/Resources/fonts/Roboto-Light.ttf => /Users/sofie/Documents/Titanium Studio Workspace/Project/build/android/bin/assets/Resources/fonts/Roboto-Light.ttf
+[TRACE] COPYING CREATED FILE: /Users/sofie/Documents/Titanium Studio Workspace/Project/Resources/fonts/Roboto-Regular.ttf => /Users/sofie/Documents/Titanium Studio Workspace/Project/build/android/bin/assets/Resources/fonts/Roboto-Regular.ttf
+[TRACE] COPYING CREATED FILE: /Users/sofie/Documents/Titanium Studio Workspace/Project/Resources/fonts/Roboto-Thin.ttf => /Users/sofie/Documents/Titanium Studio Workspace/Project/build/android/bin/assets/Resources/fonts/Roboto-Thin.ttf
+[TRACE] COPYING CREATED FILE: /Users/sofie/Documents/Titanium Studio Workspace/Project/Resources/img/add.png => /Users/sofie/Documents/Titanium Studio Workspace/Project/build/android/bin/assets/Resources/img/add.png
+[TRACE] COPYING CREATED FILE: /Users/sofie/Documents/Titanium Studio Workspace/Project/Resources/img/appicon.png => /Users/sofie/Documents/Titanium Studio Workspace/Project/build/android/bin/assets/Resources/img/appicon.png
+[TRACE] COPYING CREATED FILE: /Users/sofie/Documents/Titanium Studio Workspace/Project/Resources/img/arrow.png => /Users/sofie/Documents/Titanium Studio Workspace/Project/build/android/bin/assets/Resources/img/arrow.png
+[TRACE] COPYING CREATED FILE: /Users/sofie/Documents/Titanium Studio Workspace/Project/Resources/img/header-bg.png => /Users/sofie/Documents/Titanium Studio Workspace/Project/build/android/bin/assets/Resources/img/header-bg.png
+[TRACE] COPYING CREATED FILE: /Users/sofie/Documents/Titanium Studio Workspace/Project/Resources/img/home.png => /Users/sofie/Documents/Titanium Studio Workspace/Project/build/android/bin/assets/Resources/img/home.png
+[TRACE] COPYING CREATED FILE: /Users/sofie/Documents/Titanium Studio Workspace/Project/Resources/img/KS_nav_ui.png => /Users/sofie/Documents/Titanium Studio Workspace/Project/build/android/bin/assets/Resources/img/KS_nav_ui.png
+[TRACE] COPYING CREATED FILE: /Users/sofie/Documents/Titanium Studio Workspace/Project/Resources/img/KS_nav_views.png => /Users/sofie/Documents/Titanium Studio Workspace/Project/build/android/bin/assets/Resources/img/KS_nav_views.png
+[TRACE] COPYING CREATED FILE: /Users/sofie/Documents/Titanium Studio Workspace/Project/Resources/img/login.png => /Users/sofie/Documents/Titanium Studio Workspace/Project/build/android/bin/assets/Resources/img/login.png
+[TRACE] COPYING CREATED FILE: /Users/sofie/Documents/Titanium Studio Workspace/Project/Resources/img/twitters.png => /Users/sofie/Documents/Titanium Studio Workspace/Project/build/android/bin/assets/Resources/img/twitters.png
+[TRACE] COPYING CREATED FILE: /Users/sofie/Documents/Titanium Studio Workspace/Project/Resources/lib/oauth.js => /Users/sofie/Documents/Titanium Studio Workspace/Project/build/android/bin/assets/Resources/lib/oauth.js
+[TRACE] COPYING CREATED FILE: /Users/sofie/Documents/Titanium Studio Workspace/Project/Resources/lib/sha1.js => /Users/sofie/Documents/Titanium Studio Workspace/Project/build/android/bin/assets/Resources/lib/sha1.js
+[TRACE] COPYING CREATED FILE: /Users/sofie/Documents/Titanium Studio Workspace/Project/Resources/tweetsWindow.js => /Users/sofie/Documents/Titanium Studio Workspace/Project/build/android/bin/assets/Resources/tweetsWindow.js
+[TRACE] COPYING CREATED FILE: /Users/sofie/Documents/Titanium Studio Workspace/Project/Resources/ui.js => /Users/sofie/Documents/Titanium Studio Workspace/Project/build/android/bin/assets/Resources/ui.js
+[TRACE] COPYING CREATED FILE: /Users/sofie/Documents/Titanium Studio Workspace/Project/Resources/windows/tweetWebView.css => /Users/sofie/Documents/Titanium Studio Workspace/Project/build/android/bin/assets/Resources/windows/tweetWebView.css
+[TRACE] COPYING CREATED FILE: /Users/sofie/Documents/Titanium Studio Workspace/Project/Resources/windows/tweetWebView.js => /Users/sofie/Documents/Titanium Studio Workspace/Project/build/android/bin/assets/Resources/windows/tweetWebView.js
 [TRACE] Generating Java Classes
 [DEBUG] Processing Android resource drawables
 [TRACE] COPYING FILE: /Users/sofie/Documents/Titanium Studio Workspace/Project/Resources/android/images/res-notlong-port-ldpi/Default.png => /Users/sofie/Documents/Titanium Studio Workspace/Project/build/android/res/drawable-notlong-port-ldpi/default_d44e27d97b.png
+[DEBUG] app stylesheet => /Users/sofie/Documents/Titanium Studio Workspace/Project/build/android/gen/com/appcelerator/project/ApplicationStylesheet.java
 [DEBUG] copying app icon: /Users/sofie/Documents/Titanium Studio Workspace/Project/build/android/bin/assets/Resources/appicon.png
 [DEBUG] generating theme.xml
 [DEBUG] found drawable-long-land-hdpi splash screen at /Users/sofie/Documents/Titanium Studio Workspace/Project/Resources/android/images/res-long-land-hdpi/default.png
@@ -35,11 +59,12 @@ Logfile initialized
 [DEBUG] copying /Users/sofie/Documents/Titanium Studio Workspace/Project/Resources/android/images/res-notlong-port-mdpi/default.png splash screen to /Users/sofie/Documents/Titanium Studio Workspace/Project/build/android/res/drawable-notlong-port-mdpi/background.png
 [DEBUG] found splash screen at /Users/sofie/Documents/Titanium Studio Workspace/Project/build/android/bin/assets/Resources/default.png
 [TRACE] Writing out AndroidManifest.xml
+[DEBUG] adding /Users/sofie/Documents/Titanium Studio Workspace/Project/build/android/gen/com/appcelerator/project/ApplicationStylesheet.java to javac build list
 [DEBUG] adding /Users/sofie/Documents/Titanium Studio Workspace/Project/build/android/gen/com/appcelerator/project/ProjectActivity.java to javac build list
 [DEBUG] adding /Users/sofie/Documents/Titanium Studio Workspace/Project/build/android/gen/com/appcelerator/project/ProjectAppInfo.java to javac build list
 [DEBUG] adding /Users/sofie/Documents/Titanium Studio Workspace/Project/build/android/gen/com/appcelerator/project/ProjectApplication.java to javac build list
 [DEBUG] adding /Users/sofie/Documents/Titanium Studio Workspace/Project/build/android/gen/com/appcelerator/project/R.java to javac build list
-[DEBUG] Building Java Sources: "/Users/sofie/Documents/Titanium Studio Workspace/Project/build/android/gen/com/appcelerator/project/ProjectActivity.java" "/Users/sofie/Documents/Titanium Studio Workspace/Project/build/android/gen/com/appcelerator/project/ProjectAppInfo.java" "/Users/sofie/Documents/Titanium Studio Workspace/Project/build/android/gen/com/appcelerator/project/ProjectApplication.java" "/Users/sofie/Documents/Titanium Studio Workspace/Project/build/android/gen/com/appcelerator/project/R.java"
+[DEBUG] Building Java Sources: "/Users/sofie/Documents/Titanium Studio Workspace/Project/build/android/gen/com/appcelerator/project/ApplicationStylesheet.java" "/Users/sofie/Documents/Titanium Studio Workspace/Project/build/android/gen/com/appcelerator/project/ProjectActivity.java" "/Users/sofie/Documents/Titanium Studio Workspace/Project/build/android/gen/com/appcelerator/project/ProjectAppInfo.java" "/Users/sofie/Documents/Titanium Studio Workspace/Project/build/android/gen/com/appcelerator/project/ProjectApplication.java" "/Users/sofie/Documents/Titanium Studio Workspace/Project/build/android/gen/com/appcelerator/project/R.java"
 [INFO] Compiling Android Resources... This could take some time
 [DEBUG] Android classes.dex built
 [DEBUG] creating unsigned apk: /Users/sofie/Documents/Titanium Studio Workspace/Project/build/android/bin/app-unsigned.apk
@@ -50,14 +75,19 @@ Logfile initialized
 [DEBUG] from resource zip => assets/Resources/img/KS_nav_views.png
 [DEBUG] from resource zip => assets/Resources/img/add.png
 [DEBUG] from resource zip => assets/Resources/img/appicon.png
+[DEBUG] from resource zip => assets/Resources/img/arrow.png
 [DEBUG] from resource zip => assets/Resources/img/header-bg.png
 [DEBUG] from resource zip => assets/Resources/img/home.png
+[DEBUG] from resource zip => assets/Resources/img/login.png
 [DEBUG] from resource zip => assets/Resources/img/twitters.png
-[DEBUG] from resource zip => assets/Resources/Default.png
+[DEBUG] from resource zip => assets/Resources/lib/oauth.js
+[DEBUG] from resource zip => assets/Resources/lib/sha1.js
+[DEBUG] from resource zip => assets/Resources/windows/tweetWebView.css
+[DEBUG] from resource zip => assets/Resources/windows/tweetWebView.js
 [DEBUG] from resource zip => assets/Resources/addWindow.js
 [DEBUG] from resource zip => assets/Resources/app.js
 [DEBUG] from resource zip => assets/Resources/appicon.png
-[DEBUG] from resource zip => assets/Resources/detailWindow.js
+[DEBUG] from resource zip => assets/Resources/default.png
 [DEBUG] from resource zip => assets/Resources/favicon.ico
 [DEBUG] from resource zip => assets/Resources/tweetsWindow.js
 [DEBUG] from resource zip => assets/Resources/ui.js
@@ -98,6 +128,6 @@ Logfile initialized
 [DEBUG] Waiting for device to be ready ...
 [TRACE] adb devices returned 1 devices/emulators
 [DEBUG] Device connected... (waited 0 seconds)
-[DEBUG] waited 0.013513 seconds on emulator to get ready
+[DEBUG] waited 0.013955 seconds on emulator to get ready
 [INFO] Installing application on emulator
 [INFO] Application installed. Launch from drawer on Home Screen

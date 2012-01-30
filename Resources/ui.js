@@ -7,6 +7,7 @@
 			titleImage : 'img/twitters.png',
 			barImage : 'img/header-bg.png',
 			url : 'tweetsWindow.js',
+			barColor:'#3b8c84',
 			myValue : aValue
 		});
 		
@@ -29,6 +30,7 @@
 			titleImage : 'img/twitters.png',
 			barImage : 'img/header-bg.png',
 			layout : 'vertical',
+			barColor:'#3b8c84',
 			url : 'addWindow.js'
 		});
 		var b = Titanium.UI.createButton({
@@ -46,7 +48,7 @@
 	//Main application tabgroup maken
 	tw.ui.createApplicationTabGroup = function(aVal) {
 		var tabGroup = Ti.UI.createTabGroup();
-
+		
 		//Windows aanmaken
 		var winTweets = tw.ui.createTwitterWindowTweets(aVal);
 		var winAdd = tw.ui.createTwitterWindowAdd();

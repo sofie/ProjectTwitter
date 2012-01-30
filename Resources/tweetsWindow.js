@@ -1,5 +1,3 @@
-// Twitter screen
-
 var win = Ti.UI.currentWindow;
 var twitter_name = win.myValue;
 win.title = '@' + twitter_name;
@@ -52,269 +50,276 @@ function getTweets(screen_name) {
 	xhr.timeout = 1000000;
 	xhr.open("GET", "http://api.twitter.com/1/statuses/user_timeline.json?screen_name=" + screen_name);
 	//xhr.open("GET", "https://api.twitter.com/1/geo/similar_places.json?long="+-122+"&lat="+37+"&strict=false&name="+ Twitter+HQ);
-	//http://api.twitter.com/1/geo/search.json
 
 	xhr.onload = function() {
 		try {
 			var tweets = JSON.parse(this.responseText);
+			if(tweets.error) {
+				Ti.App.fireEvent('app:notweets', {
+					action : 'No tweets'
+				});
+			} else {
 
-			for(var c = 0; c < tweets.length; c++) {
+				for(var c = 0; c < tweets.length; c++) {
 
-				var tweet = tweets[c].text;
-				var screen_name = tweets[c].user.screen_name;
-				var name = tweets[c].user.name;
-				var avatar = tweets[c].user.profile_image_url;
-				var created_at = prettyDate(strtotime(tweets[c].created_at));
-				var bgcolor = (c % 2) == 0 ? '#fff' : '#eee';
-				var location = tweets[c].user.location;
-				//var location_2 = tweets[c].user.location;
+					var tweet = tweets[c].text;
+					var screen_name = tweets[c].user.screen_name;
+					var name = tweets[c].user.name;
+					var avatar = tweets[c].user.profile_image_url;
+					var created_at = prettyDate(strtotime(tweets[c].created_at));
+					var bgcolor = (c % 2) == 0 ? '#fff' : '#eee';
+					var location = tweets[c].user.location;
 
-				var row = Ti.UI.createTableViewRow({
-					height : 'auto',
-					backgroundColor : bgcolor,
-					rightImage : 'img/arrow.png'
+					var row = Ti.UI.createTableViewRow({
+						height : 'auto',
+						backgroundColor : bgcolor,
+						rightImage : 'img/arrow.png'
+					});
+
+					// Layout view met alle info per tweet
+					var post_view = Ti.UI.createView({
+						height : 'auto',
+						layout : 'vertical',
+						left : 7,
+						top : 7,
+						bottom : 7,
+						right : 7
+					});
+
+					var av = Ti.UI.createImageView({
+						image : avatar,
+						borderRadius : 5,
+						left : 0,
+						top : 0,
+						height : 48,
+						width : 48
+					});
+					// Add the avatar image to the view
+					post_view.add(av);
+
+					var name_label = Ti.UI.createLabel({
+						text : name,
+						left : 54,
+						width : 'auto',
+						top : -48,
+						bottom : 2,
+						height : 16,
+						textAlign : 'left',
+						font : {
+							fontSize : 13,
+							fontWeight : 'bold'
+						}
+					});
+					// Add the username to the view
+					post_view.add(name_label);
+
+					var name_width = name_label.width;
+
+					var screenname_label = Ti.UI.createLabel({
+						text : "@" + screen_name,
+						top : -18,
+						left : name_width + 60,
+						width : 'auto',
+						textAlign : 'right',
+						height : 16,
+						color : '#444444',
+						font : {
+							fontSize : 11
+						}
+					});
+					// Add the username to the view
+					post_view.add(screenname_label);
+
+					var date_label = Ti.UI.createLabel({
+						text : created_at,
+						width : 'auto',
+						top : -18,
+						height : 16,
+						right : 0,
+						textAlign : 'right',
+						color : '#444444',
+						font : {
+							fontFamily : 'Trebuchet MS',
+							fontSize : 11
+						}
+					});
+					// Add the date to the view
+					post_view.add(date_label);
+
+					var tweet_text = Ti.UI.createLabel({
+						text : tweet,
+						left : 54,
+						top : 0,
+						bottom : 2,
+						height : 'auto',
+						width : 236,
+						textAlign : 'left',
+						font : {
+							fontSize : 12
+						}
+					});
+					// Add the tweet to the view
+					post_view.add(tweet_text);
+
+					var tweet_location = Ti.UI.createLabel({
+						text : location,
+						left : 54,
+						width : 'auto',
+						height : 16,
+						textAlign : 'right',
+						color : '#444444',
+						font : {
+							fontFamily : 'Trebuchet MS',
+							fontSize : 11
+						}
+					});
+					// Add the location to the view
+					post_view.add(tweet_location);
+
+					// Add the vertical layout view to the row
+					row.add(post_view);
+					row.className = 'item' + c;
+					data[c] = row;
+				}
+				// Create the tableView and add it to the window.
+				var tableview = Titanium.UI.createTableView({
+					data : data,
+					minRowHeight : 58
 				});
 
-				// Layout view met alle info per tweet
-				var post_view = Ti.UI.createView({
-					height : 'auto',
-					layout : 'vertical',
-					left : 7,
-					top : 7,
-					bottom : 7,
-					right : 7
-				});
+				tableview.addEventListener('click', function(_e) {
 
-				var av = Ti.UI.createImageView({
-					image : avatar,
-					borderRadius : 5,
-					left : 0,
-					top : 0,
-					height : 48,
-					width : 48
-				});
-				// Add the avatar image to the view
-				post_view.add(av);
+					// Open detail window
+					var win = Ti.UI.createWindow({
+						layout : 'vertical',
+						barColor : '#3b8c84',
+						barImage : 'img/header-bg.png',
+						titleImage : 'img/twitters.png'
 
-				var name_label = Ti.UI.createLabel({
-					text : name,
-					left : 54,
-					width : 'auto',
-					top : -48,
-					bottom : 2,
-					height : 16,
-					textAlign : 'left',
-					font : {
-						fontSize : 13,
-						fontWeight : 'bold'
-					}
-				});
-				// Add the username to the view
-				post_view.add(name_label);
+					});
+					var imgview = Ti.UI.createImageView({
+						image : tweets[_e.index].user.profile_image_url_https,
+						borderRadius : 5,
+						left : 20,
+						top : 20,
+						height : 48,
+						width : 48
+					});
+					win.add(imgview);
 
-				var name_width = name_label.width;
+					var lblName = Ti.UI.createLabel({
+						text : tweets[_e.index].user.name,
+						top : -45,
+						left : 75,
+						textAlign : 'left',
+						font : {
+							fontSize : 14
+						},
+						height : 'auto'
+					});
+					win.add(lblName);
 
-				var screenname_label = Ti.UI.createLabel({
-					text : "@" + screen_name,
-					top : -18,
-					left : name_width + 60,
-					width : 'auto',
-					textAlign : 'right',
-					height : 16,
-					color : '#444444',
-					font : {
-						fontSize : 11
-					}
-				});
-				// Add the username to the view
-				post_view.add(screenname_label);
+					var lblNameAt = Ti.UI.createLabel({
+						text : '@' + tweets[_e.index].user.screen_name,
+						top : 0,
+						left : 75,
+						textAlign : 'left',
+						color : '#909090',
+						font : {
+							fontSize : 12
+						},
+						height : 'auto'
+					});
+					win.add(lblNameAt);
 
-				var date_label = Ti.UI.createLabel({
-					text : created_at,
-					width : 'auto',
-					top : -18,
-					height : 16,
-					right : 0,
-					textAlign : 'right',
-					color : '#444444',
-					font : {
-						fontFamily : 'Trebuchet MS',
-						fontSize : 11
-					}
-				});
-				// Add the date to the view
-				post_view.add(date_label);
+					var lblNumTweets = Ti.UI.createLabel({
+						text : tweets[_e.index].user.statuses_count,
+						top : -35,
+						textAlign : 'right',
+						right : 20,
+						font : {
+							fontSize : 14
+						},
+						height : 'auto'
+					});
+					win.add(lblNumTweets);
 
-				var tweet_text = Ti.UI.createLabel({
-					text : tweet,
-					left : 54,
-					top : 0,
-					bottom : 2,
-					height : 'auto',
-					width : 236,
-					textAlign : 'left',
-					font : {
-						fontSize : 12
-					}
-				});
-				// Add the tweet to the view
-				post_view.add(tweet_text);
-
-				var tweet_location = Ti.UI.createLabel({
-					text : location,
-					left : 54,
-					width : 'auto',
-					height : 16,
-					textAlign : 'right',
-					color : '#444444',
-					font : {
-						fontFamily : 'Trebuchet MS',
-						fontSize : 11
-					}
-				});
-				// Add the location to the view
-				post_view.add(tweet_location);
-
-				// Add the vertical layout view to the row
-				row.add(post_view);
-				row.className = 'item' + c;
-				data[c] = row;
-			}
-			// Create the tableView and add it to the window.
-			var tableview = Titanium.UI.createTableView({
-				data : data,
-				minRowHeight : 58
-			});
-
-			tableview.addEventListener('click', function(_e) {
-
-				// Open detail window
-				var win = Ti.UI.createWindow({
-					layout : 'vertical',
-					barImage : 'img/header-bg.png'
-				});
-				var imgview = Ti.UI.createImageView({
-					image : tweets[_e.index].user.profile_image_url_https,
-					borderRadius : 5,
-					left : 20,
-					top : 20,
-					height : 48,
-					width : 48
-				});
-				win.add(imgview);
-
-				var lblName = Ti.UI.createLabel({
-					text : tweets[_e.index].user.name,
-					top : -45,
-					left : 75,
-					textAlign : 'left',
-					font : {
-						fontSize : 14
-					},
-					height : 'auto'
-				});
-				win.add(lblName);
-
-				var lblNameAt = Ti.UI.createLabel({
-					text : '@' + tweets[_e.index].user.screen_name,
-					top : 0,
-					left : 75,
-					textAlign : 'left',
-					color : '#909090',
-					font : {
-						fontSize : 12
-					},
-					height : 'auto'
-				});
-				win.add(lblNameAt);
-
-				var lblNumTweets = Ti.UI.createLabel({
-					text : tweets[_e.index].user.statuses_count,
-					top : -35,
-					textAlign : 'right',
-					right : 20,
-					font : {
-						fontSize : 14
-					},
-					height : 'auto'
-				});
-				win.add(lblNumTweets);
-
-				var lblTweets = Ti.UI.createLabel({
-					text : 'TWEETS',
-					top : 0,
-					textAlign : 'right',
-					right : 20,
-					color : '#909090',
-					font : {
-						fontSize : 11
-					},
-					height : 'auto'
-				});
-				win.add(lblTweets);
-
-				var TwitterParser = function(text) {
+					var lblTweets = Ti.UI.createLabel({
+						text : 'TWEETS',
+						top : 0,
+						textAlign : 'right',
+						right : 20,
+						color : '#909090',
+						font : {
+							fontSize : 11
+						},
+						height : 'auto'
+					});
+					win.add(lblTweets);
+					/*
+					var TwitterParser = function(text) {
 					var html = text;
 					var urlRegex = /((ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?)/gi;
 
 					this.linkifyURLs = function() {
-						html = html.replace(urlRegex, '<a href="$1">$1</a>');
+					html = html.replace(urlRegex, '<a href="$1">$1</a>');
 					};
 
 					this.getHTML = function() {
-						return html;
+					return html;
 					};
-				};
-				var tweet = "Hallo http://yfrog.com/oex5mwej";
-				// parse the tweet and set it as the HTML for the web view
-				var parser = new TwitterParser(tweet);
-				parser.linkifyURLs();
+					};
+					var tweet = "Hallo http://yfrog.com/oex5mwej";
+					// parse the tweet and set it as the HTML for the web view
+					var parser = new TwitterParser(tweet);
+					parser.linkifyURLs();
 
-				var web = Ti.UI.createWebView({
+					var web = Ti.UI.createWebView({
 					html : parser.getHTML()
+					});
+
+					win.add(web);
+					*/
+					//window.open();
+
+					var tweetLink = tweets[_e.index].text.replace(/((ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?)/gi,'* $1');
+					
+					var lblText = Ti.UI.createLabel({
+						text : tweetLink,
+						top : 30,
+						left : 20,
+						right : 15,
+						textAlign : 'left',
+						font : {
+							fontSize : 16
+						},
+						height : 'auto'
+					});
+					win.add(lblText);
+
+					var lblDate = Ti.UI.createLabel({
+						text : prettyDate(strtotime(tweets[_e.index].created_at)),
+						top : 10,
+						left : 20,
+						right : 15,
+						textAlign : 'left',
+						color : '#909090',
+						font : {
+							fontSize : 12
+						},
+						height : 'auto'
+					});
+					win.add(lblDate);
+
+					// Geef toegang tot row data
+					win.rowData = tweets[_e.index].rowData;
+
+					Ti.UI.currentTab.open(win);
+
 				});
-			
-				win.add(web);
 
-				//window.open();
-				
-				 var tweetLink = tweets[_e.index].text.replace(/((ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?)/gi, 'Link: $1');
-				 //Ti.API.info(tweetLink);
-				 var lblText = Ti.UI.createLabel({
-				 text : tweetLink,
-				 top : 30,
-				 left : 20,
-				 right : 15,
-				 textAlign : 'left',
-				 font : {
-				 fontSize : 16
-				 },
-				 height : 'auto'
-				 });
-				 win.add(lblText);
-				 
-				var lblDate = Ti.UI.createLabel({
-					text : prettyDate(strtotime(tweets[_e.index].created_at)),
-					top : 10,
-					left : 20,
-					right : 15,
-					textAlign : 'left',
-					color : '#909090',
-					font : {
-						fontSize : 12
-					},
-					height : 'auto'
-				});
-				win.add(lblDate);
-
-				// Geef toegang tot row data
-				win.rowData = tweets[_e.index].rowData;
-
-				Ti.UI.currentTab.open(win);
-
-			});
-
-			win.add(tableview);
+				win.add(tableview);
+			}
 		} catch(E) {
 			alert(E);
 		}

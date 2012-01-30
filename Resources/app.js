@@ -1,4 +1,5 @@
 Titanium.UI.setBackgroundColor('#ffffff');
+
 var tw = {};
 require('ui');
 var tabCount = 0;
@@ -9,12 +10,24 @@ var win = Ti.UI.createWindow({
 	layout : 'vertical',
 	modal : 'true'
 });
+var lbl = Ti.UI.createLabel({
+	text : 'Login',
+	left : 20,
+	top : 15,
+	textAlign : 'left',
+	font : {
+		fontWeight : 'bold',
+		fontSize : 18
+	},
+	height : 'auto'
+});
+win.add(lbl);
 
 var username = Titanium.UI.createTextField({
 	color : '#888',
-	top : 20,
+	top : 10,
 	left : 20,
-	right:20,
+	right : 20,
 	height : 40,
 	hintText : 'Username',
 	keyboardType : Titanium.UI.KEYBOARD_DEFAULT,
@@ -24,14 +37,14 @@ var username = Titanium.UI.createTextField({
 win.add(username);
 
 var lbl = Titanium.UI.createLabel({
-	text:'Gebruik @username',
-	left:17,
-	height:'auto',
-	width:'auto',
-	top:10,
-	color:'#909090',
-	font:{
-		fontSize:12
+	text : 'Gebruik @username',
+	left : 17,
+	height : 'auto',
+	width : 'auto',
+	top : 10,
+	color : '#909090',
+	font : {
+		fontSize : 12
 	}
 });
 win.add(lbl);
@@ -74,6 +87,16 @@ loginBtn.addEventListener('click', function(e) {
 win.add(loginBtn);
 
 Titanium.App.addEventListener('app:btnclicked', function(e) {
+	win.open();
+	username.value = "";
+});
+Titanium.App.addEventListener('app:notweets', function(e) {
+	var alertBox = Titanium.UI.createAlertDialog({
+		message : 'Geen tweets gevonden voor deze @username',
+		title : 'Twitter',
+		buttonNames : ['Ok']
+	});
+	alertBox.show();
 	win.open();
 	username.value = "";
 });

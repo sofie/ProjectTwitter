@@ -16,7 +16,7 @@
     <url>http://appcelerator.com</url>
     <description>Project Ontwikkeling voor Mobiele Platformen</description>
     <copyright>2011 by Sofie and Lieselot</copyright>
-    <icon>appicon.png</icon>
+    <icon>img/icon.png</icon>
     <persistent-wifi>false</persistent-wifi>
     <prerendered-icon>false</prerendered-icon>
     <statusbar-style>default</statusbar-style>
