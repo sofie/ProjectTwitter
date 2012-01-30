@@ -8,7 +8,7 @@
 			barImage : 'img/header-bg.png',
 			url : 'tweetsWindow.js',
 			barColor:'#3b8c84',
-			myValue : aValue
+			myValue : aValue 
 		});
 		
 		var b = Titanium.UI.createButton({

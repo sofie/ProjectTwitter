@@ -9,7 +9,7 @@
 	<key>CFBundleExecutable</key>
 	<string>${EXECUTABLE_NAME}</string>
 	<key>CFBundleIconFile</key>
-	<string>img/icon.png</string>
+	<string>appicon.png</string>
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>
@@ -40,6 +40,7 @@
 	<true/>
         <key>CFBundleIconFiles</key>
         <array>
+	<string>appicon.png</string>
 </array>
 
         <key>UISupportedInterfaceOrientations~ipad</key>

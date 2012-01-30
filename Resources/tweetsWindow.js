@@ -152,7 +152,7 @@ function getTweets(screen_name) {
 						top : 0,
 						bottom : 2,
 						height : 'auto',
-						width : 236,
+						//width : 236,
 						textAlign : 'left',
 						font : {
 							fontSize : 12
@@ -184,6 +184,8 @@ function getTweets(screen_name) {
 				// Create the tableView and add it to the window.
 				var tableview = Titanium.UI.createTableView({
 					data : data,
+					style:Titanium.UI.iPhone.TableViewStyle.GROUPED,
+					backgroundColor:'#eaf6f1',
 					minRowHeight : 58
 				});
 

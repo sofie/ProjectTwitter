@@ -1,4 +1,4 @@
-Titanium.UI.setBackgroundColor('#ffffff');
+Titanium.UI.setBackgroundColor('#eaf6f1');
 
 var tw = {};
 require('ui');
